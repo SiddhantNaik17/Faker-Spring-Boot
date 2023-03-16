@@ -16,8 +16,8 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
-    @GetMapping(value = "/books")
-    public List<Book> listBooks(@ParameterObject DefaultQueryParameters parameters) {
+    @GetMapping("/books")
+    public List<Book> list(@ParameterObject DefaultQueryParameters parameters) {
         return (List<Book>) bookService.list(parameters);
     }
 }

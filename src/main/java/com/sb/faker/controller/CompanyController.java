@@ -16,8 +16,8 @@ public class CompanyController {
     @Autowired
     private CompanyService companyService;
 
-    @GetMapping(value = "/companies")
-    public List<Company> listCompanies(@ParameterObject DefaultQueryParameters parameters) {
+    @GetMapping("/companies")
+    public List<Company> list(@ParameterObject DefaultQueryParameters parameters) {
         return (List<Company>) companyService.list(parameters);
     }
 }

@@ -16,8 +16,8 @@ public class PersonController {
     @Autowired
     private PersonService personService;
 
-    @GetMapping(value = "/persons")
-    public List<Person> listPersons(@ParameterObject PersonQueryParameters parameters) {
+    @GetMapping("/persons")
+    public List<Person> list(@ParameterObject PersonQueryParameters parameters) {
         return (List<Person>) personService.list(parameters);
     }
 }
