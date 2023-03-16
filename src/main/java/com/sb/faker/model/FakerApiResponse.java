@@ -10,5 +10,5 @@ public class FakerApiResponse {
     private String status;
     private String code;
     private int total;
-    private List<Object> data;
+    private List<?> data;
 }
