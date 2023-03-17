@@ -2,9 +2,11 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/faker
     username: root
-#    password: root
+    #password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: update
+springdoc:
+  writer-with-order-by-keys: true
