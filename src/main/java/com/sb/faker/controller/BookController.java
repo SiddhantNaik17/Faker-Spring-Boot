@@ -1,6 +1,7 @@
 package com.sb.faker.controller;
 
 import com.sb.faker.controller.parameter.DefaultQueryParameters;
+import com.sb.faker.model.ApiResponse;
 import com.sb.faker.model.Book;
 import com.sb.faker.service.BookService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -19,7 +20,8 @@ public class BookController {
     private BookService bookService;
 
     @GetMapping("/books")
-    public List<Book> list(@ParameterObject DefaultQueryParameters parameters) {
-        return bookService.list(parameters);
+    public ApiResponse<List<Book>> list(@ParameterObject DefaultQueryParameters parameters) {
+        List<Book> bookList = bookService.list(parameters);
+        return new ApiResponse<>(bookList.size(), bookList);
     }
 }

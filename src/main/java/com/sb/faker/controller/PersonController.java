@@ -1,6 +1,7 @@
 package com.sb.faker.controller;
 
 import com.sb.faker.controller.parameter.PersonQueryParameters;
+import com.sb.faker.model.ApiResponse;
 import com.sb.faker.model.Person;
 import com.sb.faker.service.PersonService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -19,7 +20,8 @@ public class PersonController {
     private PersonService personService;
 
     @GetMapping("/persons")
-    public List<Person> list(@ParameterObject PersonQueryParameters parameters) {
-        return personService.list(parameters);
+    public ApiResponse<List<Person>> list(@ParameterObject PersonQueryParameters parameters) {
+        List<Person> personList = personService.list(parameters);
+        return new ApiResponse<>(personList.size(), personList);
     }
 }

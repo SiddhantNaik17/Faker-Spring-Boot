@@ -1,6 +1,7 @@
 package com.sb.faker.controller;
 
 import com.sb.faker.controller.parameter.ProductQueryParameters;
+import com.sb.faker.model.ApiResponse;
 import com.sb.faker.model.Product;
 import com.sb.faker.service.ProductService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -19,7 +20,8 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/products")
-    public List<Product> list(@ParameterObject ProductQueryParameters parameters) {
-        return productService.list(parameters);
+    public ApiResponse<List<Product>> list(@ParameterObject ProductQueryParameters parameters) {
+        List<Product> productList = productService.list(parameters);
+        return new ApiResponse<>(productList.size(), productList);
     }
 }

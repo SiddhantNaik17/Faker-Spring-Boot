@@ -2,6 +2,7 @@ package com.sb.faker.controller;
 
 import com.sb.faker.controller.parameter.DefaultQueryParameters;
 import com.sb.faker.model.Address;
+import com.sb.faker.model.ApiResponse;
 import com.sb.faker.service.AddressService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springdoc.core.annotations.ParameterObject;
@@ -19,7 +20,8 @@ public class AddressController {
     private AddressService addressService;
 
     @GetMapping("/addresses")
-    public List<Address> list(@ParameterObject DefaultQueryParameters parameters) {
-        return addressService.list(parameters);
+    public ApiResponse<List<Address>> list(@ParameterObject DefaultQueryParameters parameters) {
+        List<Address> addressList = addressService.list(parameters);
+        return new ApiResponse<>(addressList.size(), addressList);
     }
 }
