@@ -6,10 +6,10 @@ import com.sb.faker.service.CompanyService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 @Tag(name = "FakerAPI")
@@ -19,7 +19,7 @@ public class CompanyController {
     private CompanyService companyService;
 
     @GetMapping("/companies")
-    public List<Company> list(@ParameterObject DefaultQueryParameters parameters) {
-        return companyService.list(parameters);
+    public Page<Company> list(@ParameterObject DefaultQueryParameters parameters, @ParameterObject Pageable pageable) {
+        return companyService.list(parameters, pageable);
     }
 }
