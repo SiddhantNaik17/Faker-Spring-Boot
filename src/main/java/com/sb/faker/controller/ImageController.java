@@ -20,6 +20,6 @@ public class ImageController {
 
     @GetMapping("/images")
     public List<Image> list(@ParameterObject ImageQueryParameters parameters) {
-        return (List<Image>) imageService.list(parameters);
+        return imageService.list(parameters);
     }
 }

@@ -20,6 +20,6 @@ public class ProductController {
 
     @GetMapping("/products")
     public List<Product> list(@ParameterObject ProductQueryParameters parameters) {
-        return (List<Product>) productService.list(parameters);
+        return productService.list(parameters);
     }
 }

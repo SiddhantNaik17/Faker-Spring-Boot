@@ -20,6 +20,6 @@ public class PlaceController {
 
     @GetMapping("/places")
     public List<Place> list(@ParameterObject DefaultQueryParameters parameters) {
-        return (List<Place>) placeService.list(parameters);
+        return placeService.list(parameters);
     }
 }

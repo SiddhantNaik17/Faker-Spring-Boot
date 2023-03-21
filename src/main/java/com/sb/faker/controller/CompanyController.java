@@ -20,6 +20,6 @@ public class CompanyController {
 
     @GetMapping("/companies")
     public List<Company> list(@ParameterObject DefaultQueryParameters parameters) {
-        return (List<Company>) companyService.list(parameters);
+        return companyService.list(parameters);
     }
 }

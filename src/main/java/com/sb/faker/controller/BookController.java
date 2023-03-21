@@ -20,6 +20,6 @@ public class BookController {
 
     @GetMapping("/books")
     public List<Book> list(@ParameterObject DefaultQueryParameters parameters) {
-        return (List<Book>) bookService.list(parameters);
+        return bookService.list(parameters);
     }
 }

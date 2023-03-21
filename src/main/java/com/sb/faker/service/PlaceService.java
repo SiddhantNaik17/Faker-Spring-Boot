@@ -1,12 +1,23 @@
 package com.sb.faker.service;
 
+import com.sb.faker.controller.parameter.DefaultQueryParameters;
+import com.sb.faker.model.Address;
+import com.sb.faker.model.Place;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 
 @Service
-public class PlaceService extends FakerApiService {
+public class PlaceService {
 
-    public PlaceService() {
-        this.resource = "places";
+    @Autowired
+    private FakerApiService fakerApiService;
+
+    private final String resource = "places";
+
+    public List<Place> list(DefaultQueryParameters parameters) {
+        return (List<Place>) fakerApiService.list(resource, parameters);
     }
 }

@@ -20,6 +20,6 @@ public class CreditCardController {
 
     @GetMapping("/credit_cards")
     public List<CreditCard> list(@ParameterObject DefaultQueryParameters parameters) {
-        return (List<CreditCard>) creditCardService.list(parameters);
+        return creditCardService.list(parameters);
     }
 }

@@ -20,6 +20,6 @@ public class AddressController {
 
     @GetMapping("/addresses")
     public List<Address> list(@ParameterObject DefaultQueryParameters parameters) {
-        return (List<Address>) addressService.list(parameters);
+        return addressService.list(parameters);
     }
 }

@@ -1,29 +1,21 @@
 package com.sb.faker.service;
 
 import com.sb.faker.controller.parameter.DefaultQueryParameters;
-import com.sb.faker.model.FakerApiResponse;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.Map;
 
+public interface FakerApiService {
 
-@Component
-public class FakerApiService {
+    String BASE_URL = "https://fakerapi.it/api/v1";
+    List<?> list(String resource, DefaultQueryParameters parameters);
 
-    @Autowired
-    protected RestTemplate restTemplate;
-
-    protected String url = "https://fakerapi.it/api/v1/{resource}?_locale={_locale}&_quantity={_quantity}&_seed={_seed}";
-
-    protected String resource;
-
-    public List<?> list(DefaultQueryParameters parameters) {
+    static String build_url(String resource, DefaultQueryParameters parameters) {
         Map<String, String> uriVariables = parameters.getUriVariables();
-        uriVariables.put("resource", resource);
-        FakerApiResponse response = restTemplate.getForObject(url, FakerApiResponse.class, uriVariables);
-        return response.getData();
+        String url = BASE_URL + "/" + resource + "/?";
+        for (var entry: uriVariables.entrySet()) {
+            url += entry.getKey() + "=" + entry.getValue() + "&";
+        }
+        return url;
     }
 }

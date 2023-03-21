@@ -20,6 +20,6 @@ public class PersonController {
 
     @GetMapping("/persons")
     public List<Person> list(@ParameterObject PersonQueryParameters parameters) {
-        return (List<Person>) personService.list(parameters);
+        return personService.list(parameters);
     }
 }
