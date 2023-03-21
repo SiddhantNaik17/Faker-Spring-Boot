@@ -12,11 +12,11 @@ public interface FakerApiService<T> {
 
     static String build_url(String resource, DefaultQueryParameters parameters) {
         Map<String, String> uriVariables = parameters.getUriVariables();
-        String url = BASE_URL + "/" + resource + "/?";
+        StringBuilder url = new StringBuilder(BASE_URL + "/" + resource + "/?");
         for (var entry: uriVariables.entrySet()) {
             if (entry.getValue() != null)
-                url += entry.getKey() + "=" + entry.getValue() + "&";
+                url.append(entry.getKey()).append("=").append(entry.getValue()).append("&");
         }
-        return url;
+        return url.toString();
     }
 }
