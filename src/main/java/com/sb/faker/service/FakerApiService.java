@@ -14,7 +14,8 @@ public interface FakerApiService<T> {
         Map<String, String> uriVariables = parameters.getUriVariables();
         String url = BASE_URL + "/" + resource + "/?";
         for (var entry: uriVariables.entrySet()) {
-            url += entry.getKey() + "=" + entry.getValue() + "&";
+            if (entry.getValue() != null)
+                url += entry.getKey() + "=" + entry.getValue() + "&";
         }
         return url;
     }
