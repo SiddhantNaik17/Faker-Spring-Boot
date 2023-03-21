@@ -1,7 +1,6 @@
 package com.sb.faker.controller;
 
 import com.sb.faker.controller.parameter.DefaultQueryParameters;
-import com.sb.faker.model.ApiResponse;
 import com.sb.faker.model.CreditCard;
 import com.sb.faker.service.CreditCardService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -20,8 +19,7 @@ public class CreditCardController {
     private CreditCardService creditCardService;
 
     @GetMapping("/credit_cards")
-    public ApiResponse<List<CreditCard>> list(@ParameterObject DefaultQueryParameters parameters) {
-        List<CreditCard> creditCardList = creditCardService.list(parameters);
-        return new ApiResponse<>(creditCardList.size(), creditCardList);
+    public List<CreditCard> list(@ParameterObject DefaultQueryParameters parameters) {
+        return creditCardService.list(parameters);
     }
 }

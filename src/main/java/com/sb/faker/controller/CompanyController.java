@@ -1,7 +1,6 @@
 package com.sb.faker.controller;
 
 import com.sb.faker.controller.parameter.DefaultQueryParameters;
-import com.sb.faker.model.ApiResponse;
 import com.sb.faker.model.Company;
 import com.sb.faker.service.CompanyService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -20,8 +19,7 @@ public class CompanyController {
     private CompanyService companyService;
 
     @GetMapping("/companies")
-    public ApiResponse<List<Company>> list(@ParameterObject DefaultQueryParameters parameters) {
-        List<Company> companyList = companyService.list(parameters);
-        return new ApiResponse<>(companyList.size(), companyList);
+    public List<Company> list(@ParameterObject DefaultQueryParameters parameters) {
+        return companyService.list(parameters);
     }
 }

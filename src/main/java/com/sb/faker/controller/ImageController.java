@@ -1,7 +1,6 @@
 package com.sb.faker.controller;
 
 import com.sb.faker.controller.parameter.ImageQueryParameters;
-import com.sb.faker.model.ApiResponse;
 import com.sb.faker.model.Image;
 import com.sb.faker.service.ImageService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -20,8 +19,7 @@ public class ImageController {
     private ImageService imageService;
 
     @GetMapping("/images")
-    public ApiResponse<List<Image>> list(@ParameterObject ImageQueryParameters parameters) {
-        List<Image> imageList = imageService.list(parameters);
-        return new ApiResponse<>(imageList.size(), imageList);
+    public List<Image> list(@ParameterObject ImageQueryParameters parameters) {
+        return imageService.list(parameters);
     }
 }

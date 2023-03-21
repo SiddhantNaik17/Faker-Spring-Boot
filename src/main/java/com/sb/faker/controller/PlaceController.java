@@ -1,7 +1,6 @@
 package com.sb.faker.controller;
 
 import com.sb.faker.controller.parameter.DefaultQueryParameters;
-import com.sb.faker.model.ApiResponse;
 import com.sb.faker.model.Place;
 import com.sb.faker.service.PlaceService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -20,8 +19,7 @@ public class PlaceController {
     private PlaceService placeService;
 
     @GetMapping("/places")
-    public ApiResponse<List<Place>> list(@ParameterObject DefaultQueryParameters parameters) {
-        List<Place> placeList = placeService.list(parameters);
-        return new ApiResponse<>(placeList.size(), placeList);
+    public List<Place> list(@ParameterObject DefaultQueryParameters parameters) {
+        return placeService.list(parameters);
     }
 }
