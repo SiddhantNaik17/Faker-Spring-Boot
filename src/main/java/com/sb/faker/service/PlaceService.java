@@ -13,11 +13,11 @@ import java.util.List;
 public class PlaceService {
 
     @Autowired
-    private FakerApiService fakerApiService;
+    private FakerApiService<Place> fakerApiService;
 
-    private final String resource = "places";
+    private static final String resource = "places";
 
     public List<Place> list(DefaultQueryParameters parameters) {
-        return (List<Place>) fakerApiService.list(resource, parameters);
+        return fakerApiService.list(resource, parameters);
     }
 }

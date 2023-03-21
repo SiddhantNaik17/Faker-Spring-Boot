@@ -12,11 +12,11 @@ import java.util.List;
 public class CompanyService {
 
     @Autowired
-    private FakerApiService fakerApiService;
+    private FakerApiService<Company> fakerApiService;
 
-    private final String resource = "companies";
+    private static final String resource = "companies";
 
     public List<Company> list(DefaultQueryParameters parameters) {
-        return (List<Company>) fakerApiService.list(resource, parameters);
+        return fakerApiService.list(resource, parameters);
     }
 }

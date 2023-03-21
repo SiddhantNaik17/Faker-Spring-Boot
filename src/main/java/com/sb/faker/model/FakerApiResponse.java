@@ -5,10 +5,10 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class FakerApiResponse {
+public class FakerApiResponse<T> {
 
     private String status;
     private String code;
     private int total;
-    private List<?> data;
+    private List<T> data;
 }

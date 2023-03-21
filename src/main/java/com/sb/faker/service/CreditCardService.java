@@ -12,11 +12,11 @@ import java.util.List;
 public class CreditCardService {
 
     @Autowired
-    private FakerApiService fakerApiService;
+    private FakerApiService<CreditCard> fakerApiService;
 
-    private final String resource = "credit_cards";
+    private static final String resource = "credit_cards";
 
     public List<CreditCard> list(DefaultQueryParameters parameters) {
-        return (List<CreditCard>) fakerApiService.list(resource, parameters);
+        return fakerApiService.list(resource, parameters);
     }
 }

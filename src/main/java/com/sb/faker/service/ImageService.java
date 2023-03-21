@@ -12,11 +12,11 @@ import java.util.List;
 public class ImageService {
 
     @Autowired
-    private FakerApiService fakerApiService;
+    private FakerApiService<Image> fakerApiService;
 
-    private final String resource = "images";
+    private static final String resource = "images";
 
     public List<Image> list(DefaultQueryParameters parameters) {
-        return (List<Image>) fakerApiService.list(resource, parameters);
+        return fakerApiService.list(resource, parameters);
     }
 }
