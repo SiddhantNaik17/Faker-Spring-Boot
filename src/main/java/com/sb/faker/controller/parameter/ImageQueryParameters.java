@@ -11,15 +11,15 @@ public class ImageQueryParameters extends DefaultQueryParameters {
 
     @Schema(allowableValues = {"any", "animals", "architecture", "nature", "people", "tech", "kittens", "pokemon"})
     @Parameter(description = "This parameter means the type of the images that we want to obtain.")
-    String type;
+    private String type;
 
     @Schema(defaultValue = "640")
     @Parameter(description = "This parameter means the width of the images that we want to obtain.")
-    int width;
+    private int width;
 
     @Schema(defaultValue = "480")
     @Parameter(description = "This parameter means the height of the images that we want to obtain.")
-    int height;
+    private int height;
 
     public Map<String, String> getUriVariables() {
         Map<String, String> uriVariables = super.getUriVariables();

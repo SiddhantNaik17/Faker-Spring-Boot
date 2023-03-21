@@ -11,7 +11,7 @@ public class PersonQueryParameters extends DefaultQueryParameters {
 
     @Schema(allowableValues = {"male", "female"})
     @Parameter(description = "This parameter means the gender of the people that we want to obtain.")
-    String gender;
+    private String gender;
 
     public Map<String, String> getUriVariables() {
         Map<String, String> uriVariables = super.getUriVariables();

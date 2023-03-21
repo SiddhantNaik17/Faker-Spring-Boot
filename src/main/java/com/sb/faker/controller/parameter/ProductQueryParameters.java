@@ -11,20 +11,19 @@ public class ProductQueryParameters extends DefaultQueryParameters {
 
     @Schema(defaultValue = "0.01")
     @Parameter(description = "number in format 10.35")
-    double price_min = 0.01;
+    private double price_min = 0.01;
 
     @Schema(defaultValue = "1000000.0")
     @Parameter(description = "number in format 10.35")
-    double price_max = 1000000;
+    private double price_max = 1000000;
 
     @Schema(defaultValue = "22")
     @Parameter(description = "percentage")
-    int taxes = 22;
+    private int taxes = 22;
 
     @Schema(defaultValue = "integer", allowableValues = {"integer", "string", "uuid"})
     @Parameter(description = "categories")
-    String categories_type;
-
+    private String categories_type;
 
     public Map<String, String> getUriVariables() {
         Map<String, String> uriVariables = super.getUriVariables();
